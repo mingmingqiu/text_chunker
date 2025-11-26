@@ -14,12 +14,11 @@ MAX_LEN = 200
 
 def clean_text(t):
     # remove redundant characters for TTS:
-    # 1. exces whitespaces
-    # 2. Multiple newlines
-    # 3. Strange dashes replaced with normal punctuations
+    # - Excess whitespace
+    # - Multiple newlines
+    # - Strange dashes replaced with normal punctuation
     t = t.replace("—", "-")
     t = re.sub(r'\s+', ' ', t).strip()
-    t = re.sub(r'\n+', '\n', t).strip()
     return t
 
 def chunk_text(t, max_len=200):
